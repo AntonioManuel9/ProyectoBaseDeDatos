@@ -5,6 +5,8 @@
  */
 package es.antoniomanuelramirez.BaseDeDatos;
 
+import basededatos.entities.Equipo;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,6 +26,30 @@ public class Pruebas {
         EntityManager em = emf.createEntityManager();
         
         Query queryEquipo = em.createNamedQuery("Equipo.findAll");
+        List<Equipo> listEquipo = queryEquipo.getResultList();
+        
+        for(Equipo Equipo : listEquipo) {
+        System.out.println(Equipo.getNombre());
+        }
+        // Modificación de objetos
+        Query queryEquipoEscSur = em.createNamedQuery("Equipo.findByNombre");
+        queryEquipoEscSur.setParameter("nombre", "Esc. Sur");
+        List<Equipo> listEquipoEscSur = queryEquipoEscSur.getResultList();
+        em.getTransaction().begin();
+        
+        for(Equipo EquipoEscSur : listEquipoEscSur) {
+            EquipoEscSur.setEscudo("5");
+            em.merge(EquipoEscSur);
+        }
+        em.getTransaction().commit();
+        
+        //Eliminación de objetos
+        Equipo equipoId1 = em.find(Equipo.class, 2);
+        if(equipoId1 != null) {
+            em.remove(equipoId1);
+        } else {
+            System.out.println("No hay ningun equipo con ID=1");
+        }
     }
     
 }

@@ -6,6 +6,7 @@
 package es.antoniomanuelramirez.BaseDeDatos;
 
 import basededatos.entities.Equipo;
+import es.antoniomanuelramirez.diseñoVentana.diseñoVentanaController;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;

@@ -7,13 +7,16 @@
  * Author:  Antonio Manuel
  * Created: 23-abr-2019
  */
+DROP TABLE PILOTOS;
+DROP TABLE EQUIPO;
 
 /*Creamos las tablas que formaran nuestra base de datos que utiizaremos más adelante*/
 
     CREATE TABLE EQUIPO (
         ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
         NOMBRE VARCHAR(50),
-        ESCUDO VARCHAR(30),
+        VEHICULO VARCHAR(60),
+        GRUPO VARCHAR(25),
         CONSTRAINT ID_EQUIPO_PK PRIMARY KEY (ID)
     );
 

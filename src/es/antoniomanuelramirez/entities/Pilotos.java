@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package basededatos.entities;
+package es.antoniomanuelramirez.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -196,7 +196,7 @@ public class Pilotos implements Serializable {
 
     @Override
     public String toString() {
-        return "basededatos.entities.Pilotos[ id=" + id + " ]";
+        return "es.antoniomanuelramirez.entities.Pilotos[ id=" + id + " ]";
     }
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package basededatos.entities;
+package es.antoniomanuelramirez.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e")
     , @NamedQuery(name = "Equipo.findById", query = "SELECT e FROM Equipo e WHERE e.id = :id")
     , @NamedQuery(name = "Equipo.findByNombre", query = "SELECT e FROM Equipo e WHERE e.nombre = :nombre")
-    , @NamedQuery(name = "Equipo.findByEscudo", query = "SELECT e FROM Equipo e WHERE e.escudo = :escudo")})
+    , @NamedQuery(name = "Equipo.findByVehiculo", query = "SELECT e FROM Equipo e WHERE e.vehiculo = :vehiculo")
+    , @NamedQuery(name = "Equipo.findByGrupo", query = "SELECT e FROM Equipo e WHERE e.grupo = :grupo")})
 public class Equipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,8 +44,10 @@ public class Equipo implements Serializable {
     private Integer id;
     @Column(name = "NOMBRE")
     private String nombre;
-    @Column(name = "ESCUDO")
-    private String escudo;
+    @Column(name = "VEHICULO")
+    private String vehiculo;
+    @Column(name = "GRUPO")
+    private String grupo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipo")
     private Collection<Pilotos> pilotosCollection;
 
@@ -55,11 +58,6 @@ public class Equipo implements Serializable {
         this.id = id;
     }
 
-    public Equipo(Integer id, String nombre){
-        this.id = id;
-        this.nombre = nombre;
-    }
-    
     public Integer getId() {
         return id;
     }
@@ -76,12 +74,20 @@ public class Equipo implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getEscudo() {
-        return escudo;
+    public String getVehiculo() {
+        return vehiculo;
     }
 
-    public void setEscudo(String escudo) {
-        this.escudo = escudo;
+    public void setVehiculo(String vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 
     @XmlTransient
@@ -115,7 +121,7 @@ public class Equipo implements Serializable {
 
     @Override
     public String toString() {
-        return "basededatos.entities.Equipo[ id=" + id + " ]";
+        return "es.antoniomanuelramirez.entities.Equipo[ id=" + id + " ]";
     }
     
 }

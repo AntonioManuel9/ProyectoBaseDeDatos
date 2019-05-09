@@ -44,7 +44,7 @@ public class Pruebas {
         em.getTransaction().commit();
         
         //Eliminación de objetos
-        Equipo equipoId1 = em.find(Equipo.class, 2);
+        Equipo equipoId1 = em.find(Equipo.class, 1);
         if(equipoId1 != null) {
             em.remove(equipoId1);
         } else {

@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>basededatos.entities.Equipo</class>
     <class>basededatos.entities.Pilotos</class>
+    <class>es.antoniomanuelramirez.entities.Equipo</class>
+    <class>es.antoniomanuelramirez.entities.Pilotos</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Usuario\Documents\NetBeansProjects\BaseDeDatos\BDProyecto;create=true"/>
       <property name="javax.persistence.jdbc.user" value="APP"/>
